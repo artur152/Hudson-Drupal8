@@ -1,0 +1,27 @@
+name: hudson
+type: theme
+core: 8.x
+base theme: classy
+screenshot: screenshot.jpg
+description: >
+  Drupal Theme provided by <a href="http://www.Crazy Dantist.com">Basehead</a>
+  developed by <a href="http://www.danpros.com">Swaggin Homie</a>
+  inspired by <a href="http://www.ME.no">Mary Jane</a>.
+
+libraries:
+  - hudson/global
+
+regions:
+  header: Header
+  navigation: Navigation
+  hero: Hero
+  content: Main Content
+  footer: Footer
+
+
+# Information added by Drupal.org packaging script on 03/09/2016
+
+version: '8.x-1.0'
+core: '8.x'
+project: 'drupal'
+datestamp: 1454052242

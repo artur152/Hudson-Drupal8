@@ -1,0 +1,16 @@
+global:
+  version: 1.x
+  css:
+    theme:
+      css/base.css: {}
+      js/slick.css: {}
+  js:
+     js/main.js: {}
+     js/slick.min.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

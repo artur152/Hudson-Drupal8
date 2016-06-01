@@ -1,0 +1,336 @@
+@import "variables.scss";
+
+/* Body
+-------------------------------------------------------------- */
+
+body {
+  background: url("../images/body-bg.png") repeat-x $white;
+  margin: 0;
+  padding: 0;
+  color: $black;
+}
+
+/* Logo
+-------------------------------------------------------------- */
+.site-branding{
+  float: left;
+  .site-logo{
+  display: inline-block;
+  vertical-align: top;
+  a{
+    display: block;
+  }
+  img{
+    max-width: 100px;
+    max-height: 100px;
+    height: auto;
+    display: block;
+  }
+}
+  .site-name {
+  display: inline-block;
+  margin: 15px 0 0 0;
+  color: $white;
+  text-decoration: none;
+  font-family: $font-light;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: 2px;
+  a {
+    @extend .transition;
+    color: inherit;
+    &:hover {
+      color: $gray-light;
+    }
+  }
+}
+}
+
+#block-hudson-powered{
+  display: inline-block;
+  text-align: center;
+  width:100%;
+  margin: 20px 0;
+  font-size: 12px;
+  span{
+    a{
+      font-family:$font-bold;
+      color: $black;
+    }
+  }
+}
+
+/* Search
+-------------------------------------------------------------- */
+.search-block-form{
+  float: right;
+  form{
+    @extend .clearfix;
+  }
+}
+
+/* Navigation
+-------------------------------------------------------------- */
+nav.main-navigation{
+  position: relative;
+  width:100%;
+  clear: both;
+  ul.menu{
+    @include wrapper;
+    @extend .clearfix;
+    display: table;
+    width: 100%;
+    //-webkit-box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.75);
+    //-moz-box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.75);
+    //box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.75);
+    li{
+      display: table-cell;
+      a{
+        @extend .transition;
+        font-family: $font-book;
+        line-height: 20px;
+        background: $gray;
+        color: $white;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 5px 0;
+        margin: 0;
+        display: block;
+        &:hover{
+          background: $white;
+          color: $gray-light;
+        }
+        &.is-active{
+          background: $white;
+          color: $gray;
+        }
+      }
+    }
+  }
+}
+
+/* Page
+-------------------------------------------------------------- */
+header, footer{
+  @extend .clearfix;
+  @include wrapper;
+  margin-top: 15px;
+
+}
+
+.navigation{
+  margin-top: 20px;
+  background: $gray;
+  border-bottom: 15px solid $white;
+}
+
+.hero{
+  position: relative;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #f4f4f4;
+  //background: url("../images/slideshow-shadow.png") no-repeat center bottom;
+  //padding-bottom: 80px;
+  //-webkit-background-size: 200%;
+  //background-size:200%;
+
+  .views-field-field-hero{
+    max-height: 500px;
+    overflow: hidden;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+main.content{
+  a{
+    color: $gray;
+  }
+  .block-hudson-content{
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+    border-top: 1px solid $gray-light-2;
+    border-bottom: 1px solid $gray-light-2;
+  }
+  article{
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.50);
+    h2{
+      font-family: $font-light;
+      text-transform: uppercase;
+    }
+    img{
+      margin: 0 auto;
+      display: block;
+      max-width: 500px;
+      height: auto;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+    }
+    .links.inline{
+      text-align: center;
+      margin: 10px 0;
+      a{
+        color: $blue;
+        border-bottom: 1px dotted;
+      }
+    }
+  }
+  .outer-quickedit-field{
+    .quickedit-field{
+      margin-bottom: 10px;
+      font-family: $font-bold;
+      &+div{
+        @extend .clearfix;
+        &>div{
+          float: left;
+          width: 25%;
+        }
+        &>div:first-child, &>div:nth-child(6n){
+          position: relative;
+          width: 50%;
+          &:after{
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 100%;
+            background: $white;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+  .outer-quickedit-field{
+    &>div{
+      &+div{
+        @extend .clearfix;
+        &>div{
+          float: left;
+          width: 25%;
+        }
+        &>div:first-child, &>div:nth-child(6n){
+          position: relative;
+          width: 50%;
+          &:after{
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 100%;
+            background: $white;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+  .subscribe{
+    margin: 5px 0;
+    a{
+      color: $gray-light;
+    }
+  }
+
+  ul.menu-local-tasks{
+    margin: 20px 0;
+    border-bottom: 1px solid $gray-light;
+    li{
+      background: $gray;
+      display: inline-block;
+      a{
+        @extend .transition;
+        color: $white;
+        display: block;
+        padding: 2px 10px;
+        border: 1px solid $gray;
+        border-bottom:none;
+        &:hover{
+          border: 1px solid $gray-light;
+          border-bottom:none;
+          background: $white;
+          color: $gray-light;
+        }
+        &.is-active{
+          border: 1px solid $gray-light;
+          border-bottom:none;
+          background: $white;
+          color: $gray-light;
+        }
+      }
+    }
+  }
+
+  nav.breadcrumb{
+    margin: 10px 0;
+    li{
+      display: inline-block;
+      &:after{
+        content: '>';
+        display: inline-block;
+        color: $gray-light;
+      }
+      &:last-child{
+        &:after{
+          display: none;
+        }
+        a{
+          font-family:$font-bold;
+          color: $gray;
+        }
+      }
+    }
+    a{
+      font-family: $font-book;
+      color: $gray-light;
+    }
+  }
+
+footer{
+  margin-top: 30px;
+  text-align: center;
+
+  .search-block-form{
+    form{
+      input[type="search"]{
+        background: $gray;
+      }
+    }
+  }
+
+  .site-branding{
+    .site-name{
+      a{
+        color: $gray-light;
+      }
+    }
+  }
+
+  nav.main-navigation{
+    margin-bottom: 0;
+    ul.menu{
+      a{
+        background: $gray-light;
+        font-size: 10px;
+        padding: 2px 0;
+        &:hover{
+          background: $white;
+          color: $gray-light;
+        }
+        &.is-active{
+          background: $white;
+          color: $gray-light;
+        }
+      }
+    }
+  }
+}
+
+
