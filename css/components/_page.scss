@@ -13,7 +13,6 @@ body {
 /* Logo
 -------------------------------------------------------------- */
 .site-branding{
-  float: left;
   .site-logo{
   display: inline-block;
   vertical-align: top;
@@ -28,24 +27,175 @@ body {
   }
 }
   .site-name {
-  display: inline-block;
-  margin: 15px 0 0 0;
-  color: $white;
-  text-decoration: none;
   font-family: $font-light;
   font-size: 40px;
   line-height: 44px;
+  color: $gray-light;
+  text-decoration: none;
   letter-spacing: 2px;
+  display: inline-block;
+  margin: 15px 0 0 0;
   a {
     @extend .transition;
     color: inherit;
     &:hover {
-      color: $gray-light;
+      color: $gray-light-ccc;
     }
   }
 }
 }
 
+/* Search
+-------------------------------------------------------------- */
+.search-block-form{
+  overflow: hidden;
+  float: right;
+  margin-top: 10px;
+  form{
+    @extend .clearfix;
+    .form-search {
+      font-family:$font-book;
+      border-left: 1px solid $gray-light;
+    }
+  }
+}
+
+
+/* Navigation
+-------------------------------------------------------------- */
+nav.main-navigation{
+  background: $white;
+  width:100%;
+  ul.menu{
+    @include wrapper;
+    @extend .clearfix;
+    text-align: right;
+    li{
+      display: inline-block;
+    }
+    a{
+      @extend .transition;
+      font-size: 12px;
+      line-height: 1.2;
+      color: $gray-light;
+      text-align: center;
+      padding: 2px 10px;
+      margin: 0;
+      display: block;
+      &:hover{
+        background: $gray-light;
+        color: $white;
+      }
+      &.is-active{
+        background: $gray-light;
+        color: $white;
+      }
+    }
+  }
+}
+.navigation{
+  border-bottom: 15px solid $white;
+  nav.main-navigation{
+    background: $white;
+    position: relative;
+    width:100%;
+    clear: both;
+    ul.menu{
+      @include wrapper;
+      @extend .clearfix;
+      display: table;
+      width: 100%;
+      //-webkit-box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.75);
+      //-moz-box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.75);
+      //box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.75);
+      li{
+        display: table-cell;
+        a{
+          @extend .transition;
+          font-family: $font-regular;
+          font-size: 16px;
+          line-height: 20px;
+          color: $gray-light;
+          text-transform: uppercase;
+          text-align: center;
+          padding: 5px 0;
+          margin: 0;
+          display: block;
+          &:hover{
+            background: $gray-light;
+            color: $white;
+          }
+          &.is-active{
+            background: $gray-light;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* Components
+-------------------------------------------------------------- */
+.subscribe{
+  margin: 5px 0;
+  a{
+    color: $gray-light;
+  }
+}
+ul.menu-local-tasks{
+  margin: 20px 0;
+  border-bottom: 1px solid $gray-light;
+  li{
+    background: $gray;
+    display: inline-block;
+    a{
+      @extend .transition;
+      color: $white;
+      display: block;
+      padding: 2px 10px;
+      border: 1px solid $gray;
+      border-bottom:none;
+      &:hover{
+        border: 1px solid $gray-light;
+        border-bottom:none;
+        background: $white;
+        color: $gray-light;
+      }
+      &.is-active{
+        border: 1px solid $gray-light;
+        border-bottom:none;
+        background: $white;
+        color: $gray-light;
+      }
+    }
+  }
+}
+nav.breadcrumb{
+  margin: 10px 0;
+  li{
+    display: inline-block;
+    &:after{
+      content: '>';
+      display: inline-block;
+      color: $gray-light;
+    }
+    &:last-child{
+      &:after{
+        display: none;
+      }
+      a{
+        font-family:$font-bold;
+        color: $gray;
+      }
+    }
+  }
+  a{
+    font-family: $font-book;
+    color: $gray-light;
+  }
+}
 #block-hudson-powered{
   display: inline-block;
   text-align: center;
@@ -60,74 +210,20 @@ body {
   }
 }
 
-/* Search
--------------------------------------------------------------- */
-.search-block-form{
-  float: right;
-  form{
-    @extend .clearfix;
-  }
-}
-
-/* Navigation
--------------------------------------------------------------- */
-nav.main-navigation{
-  position: relative;
-  width:100%;
-  clear: both;
-  ul.menu{
-    @include wrapper;
-    @extend .clearfix;
-    display: table;
-    width: 100%;
-    //-webkit-box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.75);
-    //-moz-box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.75);
-    //box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.75);
-    li{
-      display: table-cell;
-      a{
-        @extend .transition;
-        font-family: $font-book;
-        line-height: 20px;
-        background: $gray;
-        color: $white;
-        text-transform: uppercase;
-        text-align: center;
-        padding: 5px 0;
-        margin: 0;
-        display: block;
-        &:hover{
-          background: $white;
-          color: $gray-light;
-        }
-        &.is-active{
-          background: $white;
-          color: $gray;
-        }
-      }
-    }
-  }
-}
-
 /* Page
 -------------------------------------------------------------- */
-header, footer{
+header{
   @extend .clearfix;
-  @include wrapper;
-  margin-top: 15px;
-
-}
-
-.navigation{
-  margin-top: 20px;
-  background: $gray;
-  border-bottom: 15px solid $white;
+  background: $white;
+  padding-bottom: 20px;
+  #block-hudson-branding{
+    float: left;
+  }
 }
 
 .hero{
   position: relative;
   margin-bottom: 50px;
-  border-bottom: 1px solid #f4f4f4;
   //background: url("../images/slideshow-shadow.png") no-repeat center bottom;
   //padding-bottom: 80px;
   //-webkit-background-size: 200%;
@@ -146,6 +242,10 @@ header, footer{
 main.content{
   a{
     color: $gray;
+    font-size: 16px;
+  }
+  .contextual-region{
+    margin-bottom: 50px;
   }
   .block-hudson-content{
     position: relative;
@@ -156,8 +256,10 @@ main.content{
     border-bottom: 1px solid $gray-light-2;
   }
   article{
+    margin-bottom: 0;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.50);
     h2{
+      font-size: 20px;
       font-family: $font-light;
       text-transform: uppercase;
     }
@@ -179,155 +281,85 @@ main.content{
       }
     }
   }
+
   .outer-quickedit-field{
-    .quickedit-field{
+/*    &>div{
+      font-size: 30px;
+      line-height: 1.2;
       margin-bottom: 10px;
       font-family: $font-bold;
-      &+div{
-        @extend .clearfix;
-        &>div{
-          float: left;
-          width: 25%;
-        }
-        &>div:first-child, &>div:nth-child(6n){
-          position: relative;
-          width: 50%;
-          &:after{
-            content: '';
-            position: absolute;
-            width: 5px;
-            height: 100%;
-            background: $white;
-            top: 0;
-            right: 0;
-          }
+    }
+    .quickedit-field{
+      @extend .clearfix;
+      &>div{
+        float: left;
+        width: 25%;
+      }
+      &>div:first-child, &>div:nth-child(6n){
+        position: relative;
+        width: 50%;
+        &:after{
+          content: '';
+          position: absolute;
+          width: 5px;
+          height: 100%;
+          background: $white;
+          top: 0;
+          right: 0;
         }
       }
-    }
+    }*/
   }
+
   .outer-quickedit-field{
-    &>div{
-      &+div{
-        @extend .clearfix;
-        &>div{
-          float: left;
-          width: 25%;
-        }
-        &>div:first-child, &>div:nth-child(6n){
-          position: relative;
-          width: 50%;
-          &:after{
-            content: '';
-            position: absolute;
-            width: 5px;
-            height: 100%;
-            background: $white;
-            top: 0;
-            right: 0;
+    .quickedit-field{
+      &>div:first-child{
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+        font-family: $font-bold;
+        &+div{
+          @extend .clearfix;
+          &>div{
+            float: left;
+            width: 25%;
+          }
+          &>div:first-child, &>div:nth-child(6n){
+            position: relative;
+            width: 50%;
+            &:after{
+              content: '';
+              position: absolute;
+              width: 5px;
+              height: 100%;
+              background: $white;
+              top: 0;
+              right: 0;
+            }
           }
         }
       }
     }
   }
-  
 }
 
-  .subscribe{
-    margin: 5px 0;
-    a{
-      color: $gray-light;
-    }
-  }
-
-  ul.menu-local-tasks{
-    margin: 20px 0;
-    border-bottom: 1px solid $gray-light;
-    li{
-      background: $gray;
-      display: inline-block;
-      a{
-        @extend .transition;
-        color: $white;
-        display: block;
-        padding: 2px 10px;
-        border: 1px solid $gray;
-        border-bottom:none;
-        &:hover{
-          border: 1px solid $gray-light;
-          border-bottom:none;
-          background: $white;
-          color: $gray-light;
-        }
-        &.is-active{
-          border: 1px solid $gray-light;
-          border-bottom:none;
-          background: $white;
-          color: $gray-light;
-        }
-      }
-    }
-  }
-
-  nav.breadcrumb{
-    margin: 10px 0;
-    li{
-      display: inline-block;
-      &:after{
-        content: '>';
-        display: inline-block;
-        color: $gray-light;
-      }
-      &:last-child{
-        &:after{
-          display: none;
-        }
-        a{
-          font-family:$font-bold;
-          color: $gray;
-        }
-      }
-    }
-    a{
-      font-family: $font-book;
-      color: $gray-light;
-    }
-  }
-
 footer{
+  @extend .clearfix;
+  background: $gray;
+  padding-top: 30px;
   margin-top: 30px;
-  text-align: center;
-
-  .search-block-form{
-    form{
-      input[type="search"]{
-        background: $gray;
-      }
-    }
-  }
-
   .site-branding{
+    float: left;
     .site-name{
       a{
         color: $gray-light;
       }
     }
   }
-
-  nav.main-navigation{
-    margin-bottom: 0;
-    ul.menu{
-      a{
-        background: $gray-light;
-        font-size: 10px;
-        padding: 2px 0;
-        &:hover{
-          background: $white;
-          color: $gray-light;
-        }
-        &.is-active{
-          background: $white;
-          color: $gray-light;
-        }
+  .search-block-form{
+    form{
+      input[type="search"]{
+        background: $gray;
       }
     }
   }
