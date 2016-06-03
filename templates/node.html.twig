@@ -64,7 +64,7 @@
  */
 #}
 
-<article{{ attributes }} class="article">
+<article{{ attributes }}>
 
   {{ title_prefix }}
   {% if not page %}
@@ -84,8 +84,8 @@
     </footer>
   {% endif %}
 
-  <div {{ content_attributes }} class="outer-quickedit-field">
-       {{ content }}
+  <div {{ content_attributes }}>
+      {{ content }}
   </div>
 
 </article>

@@ -4,11 +4,54 @@
 -------------------------------------------------------------- */
 
 body {
+  @extend .clearfix;
+  font-family: $font-regular;
   background: url("../images/body-bg.png") repeat-x $white;
   margin: 0;
   padding: 0;
   color: $black;
+  min-height: 100%;
 }
+
+.page{
+  height: 100%;
+  //margin-bottom: -150px;
+}
+
+header{
+  @extend .clearfix;
+  background: $white;
+  padding-bottom: 20px;
+  #block-hudson-branding{
+    float: left;
+  }
+}
+
+footer{
+  @extend .clearfix;
+  background: $gray;
+  padding-top: 30px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: -150px;
+  .site-branding{
+    float: left;
+    .site-name{
+      a{
+        color: $gray-light;
+      }
+    }
+  }
+  .search-block-form{
+    form{
+      input[type="search"]{
+        background: $gray;
+      }
+    }
+  }
+}
+
 
 /* Logo
 -------------------------------------------------------------- */
@@ -121,13 +164,14 @@ nav.main-navigation{
           padding: 5px 0;
           margin: 0;
           display: block;
+          border-bottom: 1px solid $white;
           &:hover{
-            background: $gray-light;
-            color: $white;
+            background: none;
+            border-bottom: 1px solid $gray-light;
           }
           &.is-active{
-            background: $gray-light;
-            color: $white;
+            background: none;
+            border-bottom: 1px solid $gray-light;
           }
         }
       }
@@ -212,29 +256,22 @@ nav.breadcrumb{
 
 /* Page
 -------------------------------------------------------------- */
-header{
-  @extend .clearfix;
-  background: $white;
-  padding-bottom: 20px;
-  #block-hudson-branding{
-    float: left;
-  }
-}
-
 .hero{
   position: relative;
   margin-bottom: 50px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.5);
   //background: url("../images/slideshow-shadow.png") no-repeat center bottom;
   //padding-bottom: 80px;
   //-webkit-background-size: 200%;
   //background-size:200%;
 
   .views-field-field-hero{
-    max-height: 500px;
+    max-height: 650px;
     overflow: hidden;
     img{
       width: 100%;
       height: auto;
+      display: block;
     }
   }
 }
@@ -248,12 +285,12 @@ main.content{
     margin-bottom: 50px;
   }
   .block-hudson-content{
-    position: relative;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 50px;
-    border-top: 1px solid $gray-light-2;
-    border-bottom: 1px solid $gray-light-2;
+    //position: relative;
+    //padding-top: 20px;
+    //padding-bottom: 20px;
+    //margin-bottom: 50px;
+    //border-top: 1px solid $gray-light-2;
+    //border-bottom: 1px solid $gray-light-2;
   }
   article{
     margin-bottom: 0;
@@ -311,55 +348,33 @@ main.content{
     }*/
   }
 
-  .outer-quickedit-field{
-    .quickedit-field{
-      &>div:first-child{
-        font-size: 30px;
-        line-height: 1.2;
-        margin-bottom: 10px;
-        font-family: $font-bold;
-        &+div{
-          @extend .clearfix;
-          &>div{
-            float: left;
-            width: 25%;
-          }
-          &>div:first-child, &>div:nth-child(6n){
-            position: relative;
-            width: 50%;
-            &:after{
-              content: '';
-              position: absolute;
-              width: 5px;
-              height: 100%;
-              background: $white;
-              top: 0;
-              right: 0;
-            }
-          }
-        }
-      }
+  .view-video{
+    @extend .clearfix;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.5);
+    .views-row{
+      float: left;
+      width: 100%;
     }
-  }
-}
-
-footer{
-  @extend .clearfix;
-  background: $gray;
-  padding-top: 30px;
-  margin-top: 30px;
-  .site-branding{
-    float: left;
-    .site-name{
-      a{
-        color: $gray-light;
-      }
+    .field-content{
+      @extend .clearfix;
     }
-  }
-  .search-block-form{
-    form{
-      input[type="search"]{
-        background: $gray;
+    .video-embed-field-responsive-video{
+      position: relative;
+      float: left;
+      width: 25%;
+    }
+    .video-embed-field-responsive-video:first-child,
+    .video-embed-field-responsive-video:nth-child(6n){
+      width: 50%;
+      &:before{
+        content: '';
+        z-index: 1;
+        position: absolute;
+        width: 5px;
+        height: calc(100% + 1px);
+        background: $white;
+        top: 0;
+        right: 0;
       }
     }
   }

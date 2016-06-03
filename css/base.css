@@ -2,14 +2,8 @@
 /*____________________ Fonts _________________*/
 /*____________________ Wrapper  _________________*/
 html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  font-family: "gotham-medium", sans-serif;
-  color: #fff;
-  margin: 0;
+  position: relative;
+  min-height: 100%;
 }
 
 strong {
@@ -339,7 +333,7 @@ form.email input[type='submit'] {
   margin-left: 0;
 }
 
-.clearfix:after, .events-calendar-form .date-input:after, .events-calendar-form .date-submit:after, .wrapper:after, .social-share ul:after, .weather:after, .slick-slider.secondary:after, .search-block-form form:after, nav.main-navigation ul.menu:after, .navigation nav.main-navigation ul.menu:after, header:after, main.content .outer-quickedit-field .quickedit-field > div:first-child + div:after, footer:after {
+.clearfix:after, .events-calendar-form .date-input:after, .events-calendar-form .date-submit:after, .wrapper:after, .social-share ul:after, .weather:after, .slick-slider.secondary:after, body:after, header:after, footer:after, .search-block-form form:after, nav.main-navigation ul.menu:after, .navigation nav.main-navigation ul.menu:after, main.content .view-video:after, main.content .view-video .field-content:after {
   content: "";
   clear: both;
   display: table;
@@ -831,9 +825,6 @@ form.email input[type='submit'] {
   list-style: none;
   display: inline-block;
 }
-.slick-slider .slick-dots li.slick-active button {
-  background: #9C9C9C;
-}
 .slick-slider .slick-dots li button {
   padding: 0;
   display: block;
@@ -841,11 +832,15 @@ form.email input[type='submit'] {
   height: 12px;
   margin: 0 4px;
   text-indent: -9999px;
-  border: solid 1px #9C9C9C;
+  border: none;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   outline: none;
   background: none;
-  box-shadow: none;
+}
+.slick-slider .slick-dots li.slick-active button {
+  background: #9C9C9C;
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 .slick-slider:hover .slick-prev {
   opacity: 1;
@@ -869,6 +864,7 @@ form.email input[type='submit'] {
 }
 
 .slick-slider.primary {
+  position: relative;
   width: 100%;
   cursor: pointer;
   margin: 0 auto;
@@ -919,6 +915,7 @@ form.email input[type='submit'] {
   overflow: hidden;
   background: none;
   height: auto;
+  max-height: 1000px;
   min-height: 200px;
   margin: 0 auto;
   padding: 0;
@@ -1257,10 +1254,42 @@ form.email input[type='submit'] {
 /* Body
 -------------------------------------------------------------- */
 body {
+  font-family: "gotham-medium", sans-serif;
   background: url("../images/body-bg.png") repeat-x #fff;
   margin: 0;
   padding: 0;
   color: #000;
+  min-height: 100%;
+}
+
+.page {
+  height: 100%;
+}
+
+header {
+  background: #fff;
+  padding-bottom: 20px;
+}
+header #block-hudson-branding {
+  float: left;
+}
+
+footer {
+  background: #393A3F;
+  padding-top: 30px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: -150px;
+}
+footer .site-branding {
+  float: left;
+}
+footer .site-branding .site-name a {
+  color: #9C9C9C;
+}
+footer .search-block-form form input[type="search"] {
+  background: #393A3F;
 }
 
 /* Logo
@@ -1367,14 +1396,15 @@ nav.main-navigation ul.menu a.is-active {
   padding: 5px 0;
   margin: 0;
   display: block;
+  border-bottom: 1px solid #fff;
 }
 .navigation nav.main-navigation ul.menu li a:hover {
-  background: #9C9C9C;
-  color: #fff;
+  background: none;
+  border-bottom: 1px solid #9C9C9C;
 }
 .navigation nav.main-navigation ul.menu li a.is-active {
-  background: #9C9C9C;
-  color: #fff;
+  background: none;
+  border-bottom: 1px solid #9C9C9C;
 }
 
 /* Components
@@ -1451,25 +1481,19 @@ nav.breadcrumb a {
 
 /* Page
 -------------------------------------------------------------- */
-header {
-  background: #fff;
-  padding-bottom: 20px;
-}
-header #block-hudson-branding {
-  float: left;
-}
-
 .hero {
   position: relative;
   margin-bottom: 50px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.5);
 }
 .hero .views-field-field-hero {
-  max-height: 500px;
+  max-height: 650px;
   overflow: hidden;
 }
 .hero .views-field-field-hero img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 main.content a {
@@ -1478,14 +1502,6 @@ main.content a {
 }
 main.content .contextual-region {
   margin-bottom: 50px;
-}
-main.content .block-hudson-content {
-  position: relative;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 50px;
-  border-top: 1px solid #f4f4f4;
-  border-bottom: 1px solid #f4f4f4;
 }
 main.content article {
   margin-bottom: 0;
@@ -1541,43 +1557,32 @@ main.content .outer-quickedit-field {
         }
       }*/
 }
-main.content .outer-quickedit-field .quickedit-field > div:first-child {
-  font-size: 30px;
-  line-height: 1.2;
-  margin-bottom: 10px;
-  font-family: "gotham-bold", sans-serif;
+main.content .view-video {
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.5);
 }
-main.content .outer-quickedit-field .quickedit-field > div:first-child + div > div {
+main.content .view-video .views-row {
+  float: left;
+  width: 100%;
+}
+main.content .view-video .video-embed-field-responsive-video {
+  position: relative;
   float: left;
   width: 25%;
 }
-main.content .outer-quickedit-field .quickedit-field > div:first-child + div > div:first-child, main.content .outer-quickedit-field .quickedit-field > div:first-child + div > div:nth-child(6n) {
-  position: relative;
+main.content .view-video .video-embed-field-responsive-video:first-child,
+main.content .view-video .video-embed-field-responsive-video:nth-child(6n) {
   width: 50%;
 }
-main.content .outer-quickedit-field .quickedit-field > div:first-child + div > div:first-child:after, main.content .outer-quickedit-field .quickedit-field > div:first-child + div > div:nth-child(6n):after {
+main.content .view-video .video-embed-field-responsive-video:first-child:before,
+main.content .view-video .video-embed-field-responsive-video:nth-child(6n):before {
   content: '';
+  z-index: 1;
   position: absolute;
   width: 5px;
-  height: 100%;
+  height: calc(100% + 1px);
   background: #fff;
   top: 0;
   right: 0;
-}
-
-footer {
-  background: #393A3F;
-  padding-top: 30px;
-  margin-top: 30px;
-}
-footer .site-branding {
-  float: left;
-}
-footer .site-branding .site-name a {
-  color: #9C9C9C;
-}
-footer .search-block-form form input[type="search"] {
-  background: #393A3F;
 }
 
 /*# sourceMappingURL=base.css.map */
